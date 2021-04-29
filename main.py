@@ -2,10 +2,10 @@ import cv2
 import numpy as np
 import os.path
 from PIL import Image
+import shutil
 
 CONTENT = input('content:') 
 CONTENT = 'INPUT/' + CONTENT
-OUTDIR = 'OUTPUT/'
 
 #####初期設定#############
 ##平滑化を行う画素のサイズ
@@ -100,3 +100,8 @@ multi_image = cv2.imread(file + '_multi' + ext, 1)
 output = dodge(multi_image, paint)
 
 cv2.imwrite(file + '_output' + ext, output)
+
+shutil.move('/home/re-taro/watercolor/' + file + '_paint' + ext, '/home/re-taro/watercolor/OUTPUT')
+shutil.move('/home/re-taro/watercolor/' + file + '_line' + ext, '/home/re-taro/watercolor/OUTPUT')
+shutil.move('/home/re-taro/watercolor/' + file + '_multi' + ext, '/home/re-taro/watercolor/OUTPUT')
+shutil.move('/home/re-taro/watercolor/' + file + '_output' + ext, '/home/re-taro/watercolor/OUTPUT')
