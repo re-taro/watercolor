@@ -5,24 +5,42 @@ from PIL import Image
 
 CONTENT = input('content:') 
 CONTENT = 'INPUT/' + CONTENT
+OUTDIR = 'OUTPUT/'
 
 #####初期設定#############
-average_square = (5,5)
+##平滑化を行う画素のサイズ
+average_square = (5, 5)
+##x軸方向の標準偏差
 sigma_x = 0
-reshape_size = (-1,3)
-criteria = (cv2.TERM_CRITERIA_EPS+cv2.TERM_CRITERIA_MAX_ITER,10,1.0)
-k = 100
-line_average = (9,9)
+##減色処理の際の配列サイズ
+reshape_size = (-1, 3)
+##減色処理の際の停止条件
+criteria = (cv2.TERM_CRITERIA_EPS+cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
+##減色処理数
+k=100
+##線画抽出の際の平滑化サイズ
+line_average = (9, 9)
+##線画抽出の際のx軸方向の標準偏差
 line_sigma_x = 0
+##エッジ検出の際のthreshold1
 threshold1 = 50
+##エッジ検出の際のthreshold2
 threshold2 = 55
-edges_average = (1,1)
+##エッジを反転させる際の平滑化サイズ
+edges_average = (1, 1)
+##エッジを反転させる際のx軸方向の標準偏差
 edges_sigma_x = 0
+##二値化の際のthresh
 thresh = 90
+##二値化の際のmax_pixel
 max_pixel = 255
+##エッジを明るくする際のガンマ
 gamma = 5.0
+##合成画像の重み
 multi_w = 0.5
+##彩色表現の重み
 paint_w = 0.9
+##ガンマ
 gamma = 1.5
 
 
